@@ -1,0 +1,34 @@
+note=> if we wnat to write jsx file in mutiple lines then we need wrap it under() beause
+babel needs to uderdtand where it is strting and where it is endiing.
+ed: const elemnt=(
+    <h1 id='heading'>
+    React from pwioi
+    </h1>
+)
+...while writting  jsx attrubte wriiten in camel case.
+let us now learn recat component:
+recatcomponent=A react-based ui building block.
+in a webpage react component represent :header,footer......
+we ave two types of component
+a. class beased component. :old style.
+b. fucntion =based component. :new style.
+note recat component defines logic + ui
+render() retrun jsx layout.
+fucntuon based component:
+1 it is created using functions of javascript.
+1 name of the fucntion should be in 'uppercaes'.
+3 it shuold return some jsx|recatElment.
+note: we cna use{} to bind any javscriptcode in our recat suinh jsx.
+eg1.
+const Title=()=>(
+    <span>Recat</span>
+);
+const Headinhg =()=>(
+    <div id="conatiner
+    {Title}
+    <Title></Tilte>
+    <tilt/>
+    <h1> lean recat{Title()} freom pwioi</h1>
+    </div>
+)
+note: jsx is making our code readbale.
