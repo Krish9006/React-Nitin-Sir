@@ -4,14 +4,13 @@ import cardItems from "../data/cardItems";
 
 const BodyComponent = ({ cart, setCart }) => {
   const [searchTerm, setSearchTerm] = useState("");
-
   // search by restaurant name
   const filteredItems = cardItems.filter((item) =>
     item.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   const addToCart = (item) => {
-    setCart([...cart, item]); // add item to cart
+    setCart([...cart, item]); 
   };
 
   return (
@@ -27,7 +26,7 @@ const BodyComponent = ({ cart, setCart }) => {
       </div>
 
       <div className="additional-content">
-        <h2>Our Collection</h2>
+        <h2>Popular Restaurants</h2>
         <div className="card-grid">
           {filteredItems.map((item) => (
             <CardComponent
