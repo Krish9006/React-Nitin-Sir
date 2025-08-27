@@ -17,6 +17,6 @@ function App() {
   );
 }
 
-// ✅ Yaha render hoga
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<App />);

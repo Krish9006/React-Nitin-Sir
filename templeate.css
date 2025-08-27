@@ -191,16 +191,12 @@ body {
   z-index: 2;
 }
 
-/* ✅ Fix: Image full cover and equal size */
 .card img {
   width: 100%;
-  height: 240px;         /* थोड़ा बड़ा ताकि clear लगे */
-  object-fit: cover;     /* Image पूरी तरह से fill करेगी */
+  height: 240px;         
+  object-fit: cover;     
   border-bottom: 1px solid #eee;
 }
-
-
-
 .card:hover img {
   transform: scale(1.03);
   transition: transform 0.5s ease;

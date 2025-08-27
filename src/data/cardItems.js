@@ -1,53 +1,163 @@
-export const CardItems = [
+const cardItems = [
   {
-    id: 1,
-    title: "Shirt",
-    description: "Explore the stunning visuals and modern design in this amazing card. Perfect for showcasing products or ideas.",
-    rating: 4.5,
-    price:2000, 
-image: "data:image/jpeg;base64,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"
-
+    "id": "1",
+    "name": "Pizza Palace",
+    "cuisine": "Italian, Pizza",
+    "rating": 4.6,
+    "image": "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/1",
+    "deliveryTime": 30
   },
   {
-    id: 2,
-    title: "Cap",
-    description: "A sleek card with a minimalist design, ideal for presenting clean content and elegant layouts.",
-    rating: 4.0,
-    price:2500, 
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGUv2y4iiyc_fpz1UFqL2vS7Eopm0gWsVXKw&s"
+    "id": "2",
+    "name": "Biryani House",
+    "cuisine": "Indian, Biryani",
+    "rating": 4.2,
+    "image": "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/2",
+    "deliveryTime": 40
   },
   {
-    id: 3,
-    title: "Genius",
-    description: "This card is great for highlighting features or announcements with its clear structure and attention-grabbing visuals.",
-    rating: 4.2,
-    price:3000, 
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRq_qfLha8AMFg3dOQ4IfzCMuu_HuU0nzxFBg&s"
+    "id": "3",
+    "name": "Burger Hub",
+    "cuisine": "American, Fast Food",
+    "rating": 4.8,
+    "image": "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/3",
+    "deliveryTime": 25
   },
   {
-    id: 4,
-    title: " white sneakers",
-    description: "Perfect for storytelling, this card balances imagery and text to engage your audience effectively.",
-    rating: 4.7,
-    price:3500, 
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNyjj_WoE09FUMpzaqAulV0dL-uX8pfPABvA&s"
+    "id": "4",
+    "name": "Taco Fiesta",
+    "cuisine": "Mexican, Tacos",
+    "rating": 4.3,
+    "image": "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/4",
+    "deliveryTime": 28
   },
   {
-    id: 5,
-    title: "Watch",
-    description: "A versatile card that works for blogs, products, or portfolio items. Eye-catching and informative.",
-    rating: 4.3,
-    price:10000, 
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_ZNKmVyo8theF7gNq4IR7iklwUHCRI1nx5Q&s"
+    "id": "5",
+    "name": "Sushi World",
+    "cuisine": "Japanese, Sushi",
+    "rating": 4.7,
+    "image": "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/5",
+    "deliveryTime": 35
   },
   {
-    id: 6,
-    title: "joggers",
-    description: "This card features high-quality visuals and ample space for content, ideal for professional presentations.",
-    rating: 4.6,
-    price:1500, 
-    image: "data:image/jpeg;base64,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"
+    "id": "6",
+    "name": "Curry Corner",
+    "cuisine": "Indian, North Indian",
+    "rating": 4.1,
+    "image": "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/6",
+    "deliveryTime": 32
+  },
+  {
+    "id": "7",
+    "name": "BBQ Nation",
+    "cuisine": "BBQ, Grill",
+    "rating": 4.5,
+    "image": "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/7",
+    "deliveryTime": 45
+  },
+  {
+    "id": "8",
+    "name": "Healthy Bites",
+    "cuisine": "Salads, Healthy",
+    "rating": 4.0,
+    "image": "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/8",
+    "deliveryTime": 20
+  },
+  {
+    "id": "9",
+    "name": "Pasta Point",
+    "cuisine": "Italian, Pasta",
+    "rating": 4.4,
+    "image": "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/9",
+    "deliveryTime": 27
+  },
+  {
+    "id": "10",
+    "name": "Dragon Wok",
+    "cuisine": "Chinese, Asian",
+    "rating": 4.3,
+    "image": "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/10",
+    "deliveryTime": 33
+  },
+  {
+    "id": "11",
+    "name": "Shawarma King",
+    "cuisine": "Middle Eastern, Shawarma",
+    "rating": 4.6,
+    "image": "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/11",
+    "deliveryTime": 22
+  },
+  {
+    "id": "12",
+    "name": "South Spice",
+    "cuisine": "South Indian, Dosa",
+    "rating": 4.1,
+    "image": "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/12",
+    "deliveryTime": 26
+  },
+  {
+    "id": "13",
+    "name": "Wraps & Rolls",
+    "cuisine": "Fast Food, Wraps",
+    "rating": 4.2,
+    "image": "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/13",
+    "deliveryTime": 18
+  },
+  {
+    "id": "14",
+    "name": "Cafe Delight",
+    "cuisine": "Cafe, Beverages",
+    "rating": 4.0,
+    "image": "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/14",
+    "deliveryTime": 15
+  },
+  {
+    "id": "15",
+    "name": "Steak House",
+    "cuisine": "American, Steak",
+    "rating": 4.7,
+    "image": "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/15",
+    "deliveryTime": 50
+  },
+  {
+    "id": "16",
+    "name": "Veggie World",
+    "cuisine": "Vegetarian, Vegan",
+    "rating": 4.3,
+    "image": "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/16",
+    "deliveryTime": 24
+  },
+  {
+    "id": "17",
+    "name": "Seafood Shack",
+    "cuisine": "Seafood, Continental",
+    "rating": 4.5,
+    "image": "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/17",
+    "deliveryTime": 38
+  },
+  {
+    "id": "18",
+    "name": "Chaat Bazaar",
+    "cuisine": "Indian, Street Food",
+    "rating": 4.2,
+    "image": "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/18",
+    "deliveryTime": 19
+  },
+  {
+    "id": "19",
+    "name": "Dessert Den",
+    "cuisine": "Desserts, Ice Cream",
+    "rating": 4.8,
+    "image": "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/19",
+    "deliveryTime": 12
+  },
+  {
+    "id": "20",
+    "name": "Kebab Junction",
+    "cuisine": "Mughlai, Kebab",
+    "rating": 4.4,
+    "image": "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/20",
+    "deliveryTime": 29
   }
-];
-
-export default CardItems;
+]
+export default cardItems;

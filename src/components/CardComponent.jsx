@@ -1,12 +1,19 @@
 import React from "react";
-const Card = ({ title, price, image, addToCart ,rating}) => (
+
+const CardComponent = ({ id, name, image, rating, cuisine, deliveryTime, addToCart }) => (
   <div className="card">
-    <img src={image} alt={title} />
-    <h3>{title}</h3>
-    <p>Price: ₹{price}</p>
+    <img src={image} alt={name} className="card-img" />
+    <h3>{name}</h3>
+    <p>Cuisine: {cuisine}</p>
     <p>Rating: {rating} ⭐</p>
-    <button onClick={addToCart}>Add to Cart</button>
+    <p>Delivery: {deliveryTime} mins</p>
+    <button
+      onClick={() => addToCart({ id, name, image, rating, cuisine, deliveryTime })}
+      className="add-btn"
+    >
+      Add to Cart
+    </button>
   </div>
 );
 
-export default Card;
+export default CardComponent;
