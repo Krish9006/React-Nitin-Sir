@@ -36,3 +36,4 @@ hooks:
 differnt ways of presenting the ui:
 ui.....>loading.....>data....>paint it[wait for sometime]
 ui...>present dummy daat....>get from api....>present dataux facltity[recat:useeffect()]
+
