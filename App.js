@@ -1,18 +1,12 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom/client";
 import "./templeate.css";
-
-// Components
 import BodyComponent from "./src/components/BodyComponent";
 import HeaderComponent from "./src/components/HeaderComponent";
-import FooterComponent from "./src/components/FooterComponent";
-
-// Pages
+import FooterComponent from "./src/components/FooterComponent"
 import Shop from "./src/components/pages/Shop.jsx";
 import About from "./src/components/pages/About.jsx";
 import Contact from "./src/components/pages/Contact.jsx";
-
-// React Router
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
