@@ -9,7 +9,7 @@ const BodyComponent = ({ cart, setCart }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
-  // filter by restaurant name
+
   const filteredItems = restaurantList.filter((item) =>
     item?.name?.toLowerCase().includes(searchTerm.toLowerCase())
   );

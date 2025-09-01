@@ -47,16 +47,19 @@ body {
   align-items: center;
 }
 
-.nav span {
-  cursor: pointer;
-  padding: 0.6rem;
-  transition: all 0.3s ease;
+/* ✅ NavLink / Link styling (replaces default blue underline) */
+.nav a {
+  text-decoration: none;
+  color: white;
   font-weight: 500;
   font-size: 1.1rem;
   position: relative;
+  padding: 0.6rem;
+  transition: all 0.3s ease;
 }
 
-.nav span:not(.signup):after {
+/* hover underline */
+.nav a:not(.signup):after {
   content: '';
   position: absolute;
   bottom: 0;
@@ -67,11 +70,16 @@ body {
   transition: width 0.3s ease;
 }
 
-.nav span:not(.signup):hover:after {
+.nav a:not(.signup):hover:after {
   width: 100%;
 }
 
-.nav span:hover {
+.nav a:hover {
+  color: #ffd700;
+}
+
+/* active link */
+.nav a.active {
   color: #ffd700;
 }
 
@@ -266,7 +274,6 @@ body {
 }
 
 /* ================= FOOTER ================= */
-/* ================= FOOTER ================= */
 .footer {
   background: linear-gradient(135deg, #141E30 0%, #243B55 100%);
   color: #fff;
@@ -350,7 +357,6 @@ body {
   margin-top: 1rem;
 }
 
-
 /* ================= RESPONSIVE DESIGN ================= */
 @media (max-width: 900px) {
   .card-grid {
@@ -392,7 +398,7 @@ body {
     font-size: 1.5rem;
   }
   
-  .nav span {
+  .nav a {
     font-size: 0.95rem;
   }
   
