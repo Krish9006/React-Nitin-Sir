@@ -37,3 +37,10 @@ differnt ways of presenting the ui:
 ui.....>loading.....>data....>paint it[wait for sometime]
 ui...>present dummy daat....>get from api....>present dataux facltity[recat:useeffect()]
 
+Param=>
+http://loaclhost:1234/restutants/456
+recat-router
+const params=useParmas();
+{
+    'id':456 => Automatic binding into id property by recat.
+}

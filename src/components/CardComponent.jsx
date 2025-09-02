@@ -1,8 +1,6 @@
 import React from "react";
 
 const CardComponent = ({ item, addToCart }) => {
-  // safe option: agar full URL hai toh direct use kare,
-  // agar sirf cloudinaryImageId hai toh base URL prepend kare
   const imageUrl = item.image.startsWith("http")
     ? item.image
     : `https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/${item.image}`;

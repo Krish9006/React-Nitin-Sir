@@ -6,7 +6,9 @@ import HeaderComponent from "./src/components/HeaderComponent";
 import FooterComponent from "./src/components/FooterComponent"
 import Shop from "./src/components/pages/Shop.jsx";
 import About from "./src/components/pages/About.jsx";
-import Contact from "./src/components/pages/Contact.jsx";
+// import Contact from "./src/components/pages/Contact.jsx";
+import Restaraunt from "./src/components/pages/Contact.jsx";
+// import Restaraunt from "./src/components/pages/Restaraunt.jsx";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
@@ -15,14 +17,12 @@ function App() {
   return (
     <BrowserRouter>
       <HeaderComponent cartCount={cart.length} />
-
       <Routes>
         <Route path="/" element={<BodyComponent cart={cart} setCart={setCart} />} />
         <Route path="/shop" element={<Shop />} />
         <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
+        <Route path="/rest/:id" element={<Restaraunt />} />
       </Routes>
-
       <FooterComponent />
     </BrowserRouter>
   );
