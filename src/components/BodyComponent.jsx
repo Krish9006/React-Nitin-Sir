@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import CardComponent from "./CardComponent";
-import ShimmerUI from "./ShimmerUI";
+import ShimmerUI from "./ShimmerUi";
 import cardItems from "../data/cardItems";
 
 const BodyComponent = ({ cart, setCart }) => {

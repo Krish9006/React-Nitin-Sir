@@ -1,5 +1,5 @@
 import React from "react";
-const ShimmerUI = () => {
+const ShimmerUi = () => {
   const shimmercards = Array(10).fill(0);
 
   return (
@@ -28,4 +28,4 @@ const ShimmerUI = () => {
   );
 };
 
-export default ShimmerUI;
+export default ShimmerUi;
