@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
 const HeaderComponent = ({ cartCount }) => (
   <header className="header">
@@ -14,7 +14,10 @@ const HeaderComponent = ({ cartCount }) => (
       <NavLink to="/about" className="nav-link">About</NavLink>
       <NavLink to="/shop" className="nav-link">Shop</NavLink>
       <NavLink to="/contact" className="nav-link">Contact</NavLink>
-      <span className="cart">🛒 {cartCount}</span>
+      <Link to="/cart" className="cart">
+        <span>🛒</span>
+        <span className="cart-count">{cartCount}</span>
+      </Link>
       <span className="signup">Sign Up</span>
     </nav>
   </header>

@@ -8,7 +8,6 @@ const CardComponent = ({ item, addToCart }) => {
 
   return (
     <Link to={`/rest/${item.id}`} className="card-link">
-
       <div className="card">
         <img
           src={imageUrl}

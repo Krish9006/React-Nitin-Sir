@@ -3,12 +3,11 @@ import CardComponent from "./CardComponent";
 import ShimmerUI from "./ShimmerUi";
 import cardItems from "../data/cardItems";
 
-const BodyComponent = ({ cart, setCart }) => {
+const BodyComponent = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [restaurantList, setRestaurantList] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
-
 
   const filteredItems = restaurantList.filter((item) =>
     item?.name?.toLowerCase().includes(searchTerm.toLowerCase())
@@ -24,7 +23,7 @@ const BodyComponent = ({ cart, setCart }) => {
         if (!response.ok) throw new Error("API not reachable");
 
         const data = await response.json();
-         const cards = data?.data?.cards || [];
+        const cards = data?.data?.cards || [];
         let restaurants = [];
 
         for (let card of cards) {
@@ -41,6 +40,7 @@ const BodyComponent = ({ cart, setCart }) => {
           rating: r?.info?.avgRating || "-",
           cuisine: r?.info?.cuisines?.join(", ") || "N/A",
           deliveryTime: r?.info?.sla?.deliveryTime || "-",
+          price: r?.info?.costForTwo || "₹200 for two",
         }));
 
         setRestaurantList(formatted);
@@ -56,7 +56,22 @@ const BodyComponent = ({ cart, setCart }) => {
   }, []);
 
   const addToCart = (item) => {
-    setCart([...cart, item]);
+    const existingCart = JSON.parse(localStorage.getItem('cartItems')) || [];
+    const itemExists = existingCart.find(cartItem => cartItem.id === item.id);
+    let updatedCart;
+
+    if (itemExists) {
+      updatedCart = existingCart.map(cartItem =>
+        cartItem.id === item.id ? { ...cartItem, quantity: cartItem.quantity + 1 } : cartItem
+      );
+    } else {
+      updatedCart = [...existingCart, { ...item, quantity: 1 }];
+    }
+
+    localStorage.setItem('cartItems', JSON.stringify(updatedCart));
+    alert(`${item.name} has been added to the cart!`);
+    // 'storage' event to notify other components (like Header)
+    window.dispatchEvent(new Event('storage'));
   };
 
   return (
