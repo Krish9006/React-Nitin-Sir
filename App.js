@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom/client";
+import { Auth0Provider } from "@auth0/auth0-react";
 import "./templeate.css";
 
 import BodyComponent from "./src/components/BodyComponent";
@@ -9,29 +10,32 @@ import Shop from "./src/components/pages/Shop.jsx";
 import About from "./src/components/pages/About.jsx";
 import Restaraunt from "./src/components/pages/Contact.jsx";
 import Cart from "./src/components/pages/Cart.jsx";
+//import Login from "./src/components/pages/Login.jsx";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+// ✅ Toastify import
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   const [cartCount, setCartCount] = useState(0);
 
-  // useEffect hook that loads cart items from localStorage and updates the count
   useEffect(() => {
     const updateCartCount = () => {
-      const existingCart = JSON.parse(localStorage.getItem('cartItems')) || [];
-      const totalCount = existingCart.reduce((count, item) => count + item.quantity, 0);
+      const existingCart = JSON.parse(localStorage.getItem("cartItems")) || [];
+      const totalCount = existingCart.reduce(
+        (count, item) => count + item.quantity,
+        0
+      );
       setCartCount(totalCount);
     };
 
-    // 'storage' event listener to update the count when a change occurs in another tab
-    window.addEventListener('storage', updateCartCount);
-
-    // Initial load
+    window.addEventListener("storage", updateCartCount);
     updateCartCount();
 
-    // Cleanup the event listener
     return () => {
-      window.removeEventListener('storage', updateCartCount);
+      window.removeEventListener("storage", updateCartCount);
     };
   }, []);
 
@@ -44,11 +48,24 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Restaraunt />} />
         <Route path="/cart" element={<Cart />} />
+        {/* <Route path="/login" element={<Login />} /> */}
       </Routes>
       <FooterComponent />
+
+      {/* ✅ Toast Container ek hi jagah App me */}
+      <ToastContainer position="top-center" autoClose={1500} />
     </BrowserRouter>
   );
-};
+}
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<App />);
+root.render(<Auth0Provider
+    domain="dev-zn15tkvsm6p036d7.us.auth0.com"
+    clientId="9J94PldkThtU7ghcD5pJ2nRXwmgWaG3u"
+    authorizationParams={{
+      redirect_uri: window.location.origin
+    }}
+  >
+    <App />
+  </Auth0Provider>,
+);
